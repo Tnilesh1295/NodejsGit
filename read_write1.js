@@ -1,7 +1,6 @@
 const http=require('http');
 
-const routes=require('./routes1');
-console.log(routes.someText);
-
-const server=http.createServer(routes.handler);
-server.listen(3000);
+const routes1=require('./routes1');
+console.log(routes1.someText);
+const server=http.createServer(routes1.handler);
+server.listen(3001);
