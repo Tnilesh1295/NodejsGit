@@ -1,17 +1,15 @@
-const express=require('express');
-const router=express.Router();
+const path = require('path');
 
+const express = require('express');
 
-router.get('/add-product',(req,res,next)=>{  //use get in place of'use'
-    res.send('<form action="/admin/add-product" method="POST"><input type="text" name="title"><input type="text" name="size"><button type="submit">Add Product</button></form>')
-})
+const productsController = require('../controllers/products');
 
-router.post('/add-product',(req,res,next)=>{
-    console.log(req.body);
-    res.redirect('/');
-})
+const router = express.Router();
 
+// /admin/add-product => GET
+router.get('/add-product', productsController.getAddProduct);
 
-
+// /admin/add-product => POST
+router.post('/add-product', productsController.postAddProduct);
 
 module.exports = router;

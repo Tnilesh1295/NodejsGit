@@ -1,15 +1,11 @@
-const express=require('express');
-const router=express.Router();
+const path = require('path');
 
+const express = require('express');
 
+const productsController = require('../controllers/products');
 
+const router = express.Router();
 
+router.get('/', productsController.getProducts);
 
-router.get('/',(req,res,next)=>{
-    res.send('<h1>Hello Html</h1>')                  //console.log("Another middleware");//res.set
-    })
-
-
-
-
-    module.exports=router;
+module.exports = router;
